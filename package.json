@@ -1,0 +1,30 @@
+{
+  "name": "iso-country-converter",
+  "version": "0.0.1",
+  "description": "Helps convert to, from and across ISO country codes, names and numbers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MatiasWengiel/iso-country-converter.git"
+  },
+  "keywords": [
+    "iso",
+    "country",
+    "code",
+    "country",
+    "codes",
+    "iso",
+    "3166",
+    "iso3166",
+    "iso-3166"
+  ],
+  "author": "Matias Wengiel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MatiasWengiel/iso-country-converter/issues"
+  },
+  "homepage": "https://github.com/MatiasWengiel/iso-country-converter#readme"
+}
