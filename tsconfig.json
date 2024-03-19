@@ -1,11 +1,13 @@
 {
   "compilerOptions": {
-    "module": "NodeNext",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "target": "esnext",
+    "types": ["vitest/globals"],
     "noImplicitAny": true,
     "outDir": "./build",
     "preserveConstEnums": true,
     "sourceMap": true
   },
-  "include": ["**/*"],
-  "exclude": ["**/*.test.ts"]
+  "exclude": ["node_modules/**/*"]
 }
