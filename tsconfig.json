@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "module": "NodeNext",
+    "noImplicitAny": true,
+    "outDir": "./build",
+    "preserveConstEnums": true,
+    "sourceMap": true
+  },
+  "include": ["**/*"],
+  "exclude": ["**/*.test.ts"]
+}

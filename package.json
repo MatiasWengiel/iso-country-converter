@@ -4,6 +4,7 @@
   "description": "Helps convert to, from and across ISO country codes, names and numbers",
   "main": "index.js",
   "scripts": {
+    "build": "npx tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -26,5 +27,8 @@
   "bugs": {
     "url": "https://github.com/MatiasWengiel/iso-country-converter/issues"
   },
-  "homepage": "https://github.com/MatiasWengiel/iso-country-converter#readme"
+  "homepage": "https://github.com/MatiasWengiel/iso-country-converter#readme",
+  "dependencies": {
+    "typescript": "^5.4.2"
+  }
 }
