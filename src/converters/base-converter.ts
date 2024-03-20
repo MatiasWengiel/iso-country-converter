@@ -1,15 +1,15 @@
 import {
   ConverterOptions,
-  PossibleReturnTypes,
+  PossibleMapTypes,
 } from './types/base-converter.types';
 
-export const baseConverter = <T extends string, O extends PossibleReturnTypes>(
+export const baseConverter = <T extends string, O extends PossibleMapTypes>(
   countryCode: T,
   map: Map<string, O>,
   options: ConverterOptions = {
     enableErrors: false,
   }
-): O => {
+): O | undefined => {
   const { enableErrors } = options;
   const expectedLength = map.keys().next().value.length;
 
