@@ -1,10 +1,10 @@
-type PossibleReturnTypes = string | undefined;
+type PossibleReturnTypes = string | number | undefined;
 
-export const baseConverter = <T extends string>(
+export const baseConverter = <T extends string, M extends PossibleReturnTypes>(
   countryCode: T,
-  enableErrors: boolean = false,
-  map: Map<string, string>
-): PossibleReturnTypes => {
+  map: Map<string, M>,
+  enableErrors: boolean = false
+): M => {
   const expectedLength = map.keys().next().value.length;
 
   if (countryCode.length !== expectedLength) {
@@ -16,5 +16,12 @@ export const baseConverter = <T extends string>(
 
     return undefined;
   }
-  return map.get(countryCode);
+
+  const converted = map.get(countryCode);
+
+  if (!converted && enableErrors) {
+    throw new Error("Unable to map country code, no matching result found");
+  }
+
+  return converted;
 };
