@@ -24,18 +24,19 @@ describe("alpha3ToAlpha2", () => {
   });
 
   describe("enableErrors is true", () => {
+    const converterOptions = {enableErrors: true}
     test("throws an error for an unknown country code", () => {
-      expect(() => alpha3ToAlpha2("ZZZ", true)).toThrowError(
+      expect(() => alpha3ToAlpha2("ZZZ", converterOptions)).toThrowError(
         new Error("Unable to map country code, no matching result found")
       );
     });
 
     test("throws an error for a too-short input", () => {
-      expect(() => alpha3ToAlpha2("A", true)).toThrowError(new Error("Country code does not match expected length"));
+      expect(() => alpha3ToAlpha2("A", converterOptions)).toThrowError(new Error("Country code does not match expected length"));
     });
 
     test("throws an error for an input that is too long", () => {
-      expect(() => alpha3ToAlpha2("ABCD", true)).toThrowError(new Error("Country code does not match expected length"));
+      expect(() => alpha3ToAlpha2("ABCD", converterOptions)).toThrowError(new Error("Country code does not match expected length"));
     });
   });
 });
