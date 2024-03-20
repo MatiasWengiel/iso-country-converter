@@ -1,10 +1,13 @@
-type PossibleReturnTypes = string | number | undefined;
+import { ConverterOptions, PossibleReturnTypes } from "./types/base-converter.types";
 
 export const baseConverter = <T extends string, M extends PossibleReturnTypes>(
   countryCode: T,
   map: Map<string, M>,
-  enableErrors: boolean = false
+  options: ConverterOptions = {
+    enableErrors: false
+  }
 ): M => {
+  const {enableErrors} = options
   const expectedLength = map.keys().next().value.length;
 
   if (countryCode.length !== expectedLength) {
