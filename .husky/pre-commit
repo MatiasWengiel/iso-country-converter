@@ -1,0 +1,8 @@
+# build and typecheck
+
+npm run build
+npm run typecheck
+
+# lint and format
+
+npx lint-staged
