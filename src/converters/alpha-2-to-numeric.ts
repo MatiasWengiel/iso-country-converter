@@ -1,7 +1,4 @@
-export const alpha2ToNumeric = (countryCode: string): number | undefined => {
-  if (countryCode.length !== 2) return undefined;
-
-  const codeMap = new Map([
+const codeMap = new Map([
     ["AX", 248],
     ["ZW", 716],
     ["ZM", 894],
@@ -252,6 +249,9 @@ export const alpha2ToNumeric = (countryCode: string): number | undefined => {
     ["AL", 8],
     ["AF", 4],
   ]);
+
+export const alpha2ToNumeric = (countryCode: string): number | undefined => {
+  if (countryCode.length !== 2) return undefined;
 
   return codeMap.get(countryCode);
 };

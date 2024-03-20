@@ -1,7 +1,7 @@
 import { alpha2ToNumeric } from "../../src/index";
 
 describe("alpha2ToNumeric", () => {
-  test("converts from ARG to AR", () => {
+  test("converts from AR to 32", () => {
     const converted = alpha2ToNumeric("AR");
 
     expect(converted).toBe(32);

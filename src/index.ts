@@ -1,3 +1,4 @@
-import { alpha3ToAlpha2, alpha2ToNumeric } from "./converters";
+import { alpha2ToEnglish, alpha2ToNumeric, alpha3ToAlpha2 } from "./converters";
 
-export { alpha3ToAlpha2, alpha2ToNumeric };
+export { alpha2ToEnglish, alpha2ToNumeric, alpha3ToAlpha2 };
+
