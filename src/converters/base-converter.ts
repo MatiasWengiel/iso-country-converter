@@ -1,18 +1,21 @@
-import { ConverterOptions, PossibleReturnTypes } from "./types/base-converter.types";
+import {
+  ConverterOptions,
+  PossibleReturnTypes,
+} from './types/base-converter.types';
 
-export const baseConverter = <T extends string, M extends PossibleReturnTypes>(
+export const baseConverter = <T extends string, O extends PossibleReturnTypes>(
   countryCode: T,
-  map: Map<string, M>,
+  map: Map<string, O>,
   options: ConverterOptions = {
-    enableErrors: false
+    enableErrors: false,
   }
-): M => {
-  const {enableErrors} = options
+): O => {
+  const { enableErrors } = options;
   const expectedLength = map.keys().next().value.length;
 
   if (countryCode.length !== expectedLength) {
     if (enableErrors) {
-      throw new Error("Country code does not match expected length", {
+      throw new Error('Country code does not match expected length', {
         cause: `Received a country code of ${countryCode.length} length. Expected a length of ${expectedLength}`,
       });
     }
@@ -23,7 +26,7 @@ export const baseConverter = <T extends string, M extends PossibleReturnTypes>(
   const converted = map.get(countryCode);
 
   if (!converted && enableErrors) {
-    throw new Error("Unable to map country code, no matching result found");
+    throw new Error('Unable to map country code, no matching result found');
   }
 
   return converted;

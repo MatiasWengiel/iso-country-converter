@@ -1,7 +1,7 @@
 type PossibleReturnTypes = string | number | undefined;
 
 interface ConverterOptions {
-  enableErrors: boolean
+  enableErrors: boolean;
 }
 
-export {PossibleReturnTypes, ConverterOptions}
+export { PossibleReturnTypes, ConverterOptions };
