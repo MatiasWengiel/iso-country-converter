@@ -7,17 +7,35 @@ describe("alpha2ToNumeric", () => {
     expect(converted).toBe(32);
   });
 
-  test("returns undefined for an unknown country code", () => {
-    const converted = alpha2ToNumeric("ZZ");
+  describe("enableErrors is false", () => {
+    test("returns undefined for an unknown country code", () => {
+      const converted = alpha2ToNumeric("ZZ");
 
-    expect(converted).toBeUndefined();
+      expect(converted).toBeUndefined();
+    });
+
+    test("returns undefined if the passed string is not two characters in length", () => {
+      const shortConverted = alpha2ToNumeric("A");
+      const longConverted = alpha2ToNumeric("ARG");
+
+      expect(shortConverted).toBeUndefined();
+      expect(longConverted).toBeUndefined();
+    });
   });
 
-  test("returns undefined if the passed string is not two characters in length", () => {
-    const shortConverted = alpha2ToNumeric("A");
-    const longConverted = alpha2ToNumeric("ARG");
+  describe("enableErrors is true", () => {
+    test("throws an error for an unknown country code", () => {
+      expect(() => alpha2ToNumeric("ZZ", true)).toThrowError(
+        new Error("Unable to map country code, no matching result found")
+      );
+    });
 
-    expect(shortConverted).toBeUndefined();
-    expect(longConverted).toBeUndefined();
+    test("throws an error for a single character input", () => {
+      expect(() => alpha2ToNumeric("A", true)).toThrowError(new Error("Country code does not match expected length"));
+    });
+
+    test("throws an error for an input that is too long", () => {
+      expect(() => alpha2ToNumeric("ABC", true)).toThrowError(new Error("Country code does not match expected length"));
+    });
   });
 });
